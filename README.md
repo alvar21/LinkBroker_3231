@@ -2,10 +2,11 @@ LinkBroker_3231
 ===============
 
 #To-dos
-1. Develop a Developer program - might have to create a dummy Link Broker (Everyone)
-2. Opening secure connections across a network
-3. Constructing software from components
+1. Develop a Developer program - might have to create a dummy Link Broker (Alvar)
+2. Opening secure connections across a network (Alvar)
+3. Constructing software from components (Danielle)
 4. Ensuring linkages only link for the number of software licences a developer has
+5. Proving Developers' licences to Software Houses without revealing it to Link Broker (Michael)
 
 #Summary
 1. Developers send proof of identity (digital certificate) and encrypted proof of software license to Link Broker
@@ -25,8 +26,8 @@ LinkBroker_3231
 
 
 ##Details
-1. Proof of software license must not be visible to Link Broker
-2. Software can only be linked once, by the developer with license info.
+1. Proof of software license *must not* be visible to Link Broker
+2. Software can only be *linked once*, by the developer with license info.
 3. Must support two or more concurrent executing Software Houses (fork())
 4. Must execute on/across three different networked computers
 5. Must support construction of software
@@ -44,5 +45,5 @@ Developer --> Software House (encrypted)
 
 ####Pre-requisites
 - socket programming
-- openssl
+- openssl (public/private key encryption)
 - software construction
