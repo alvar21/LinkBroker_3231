@@ -8,6 +8,10 @@ LinkBroker_3231
 4. Ensuring linkages only link for the number of software licences a developer has
 5. Proving Developers' licences to Software Houses without revealing it to Link Broker (Michael)
 
+####Pre-requisites
+- openssl (public/private key encryption, connection to specified host)
+- software construction
+
 #Summary
 1. Developers send proof of identity (digital certificate) and encrypted proof of software license to Link Broker
 2. Link Broker requests one or more software components from one or more Software Houses along with proof of software license
@@ -42,8 +46,3 @@ Developer --> Software House (encrypted)
 ###Digital Certificate Types
 - Connection
 - Software License
-
-####Pre-requisites
-- socket programming
-- openssl (public/private key encryption)
-- software construction
