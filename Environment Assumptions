@@ -1,0 +1,9 @@
+For reference purposes (and upcoming presentation)
+
+1. Only one Developer and Linkbroker exist. For simplicity we should have only a small number of software houses.
+2. The Developer and Software House are able to decrypt licenses. The Linkbroker cannot.
+3. Software Houses simply keep a text file (or similar list) of valid licenses for the Developer.
+4. The Software House encrypts the supplied license using md5, which is compiled into an object with its software component before being sent to Linkbroker
+5. Software Houses write their own authentication programs which MUST be called by the Developer's source code.
+6. The Developer must supply the license key used to request the software components to this authentication program.
+7. Software Houses only hold one component each.
