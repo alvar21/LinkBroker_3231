@@ -5,8 +5,9 @@ LinkBroker_3231
 1. Develop a Developer program - might have to create a dummy Link Broker (Alvar)
 2. Opening secure connections across a network (Alvar)
 3. Constructing software from components (Danielle)
-4. Ensuring linkages only link for the number of software licences a developer has
+4. Ensuring linkages only link for the number of software licences a developer has (Danielle)
 5. Proving Developers' licences to Software Houses without revealing it to Link Broker (Michael)
+6. Develop Software House program - encapsulates point 4 (Danielle)
 
 #Summary
 1. Developers send proof of identity (digital certificate) and encrypted proof of software license to Link Broker
