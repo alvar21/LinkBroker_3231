@@ -8,6 +8,7 @@ LinkBroker_3231
 4. Ensuring linkages only link for the number of software licences a developer has (Danielle)
 5. Proving Developers' licences to Software Houses without revealing it to Link Broker (Michael)
 6. Develop Software House program - encapsulates point 4 (Danielle)
+7. Baseline for Link Broker and Software House
 
 ####Pre-requisites
 - openssl (public/private key encryption, connection to specified host)

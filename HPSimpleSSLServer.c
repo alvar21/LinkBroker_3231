@@ -87,30 +87,29 @@
 #include <unistd.h>
 
 #ifdef __VMS
-#include <types.h>
-#include <socket.h>
-#include <in.h>
-#include <inet.h>
-
+    #include <types.h>
+    #include <socket.h>
+    #include <in.h>
+    #include <inet.h>
 #else
-#include <sys/types.h>
-#include <sys/socket.h>
-#include <netinet/in.h>
-#include <arpa/inet.h>
+    #include <sys/types.h>
+    #include <sys/socket.h>
+    #include <netinet/in.h>
+    #include <arpa/inet.h>
 #endif
 
 #include <openssl/crypto.h>
 #include <openssl/ssl.h>
 #include <openssl/err.h>
 
-#define RSA_SERVER_CERT     "server.crt"
-#define RSA_SERVER_KEY          "server.key"
+#define RSA_SERVER_CERT    "server.crt"
+#define RSA_SERVER_KEY     "server.key"
 
 #define RSA_SERVER_CA_CERT "server_ca.crt"
-#define RSA_SERVER_CA_PATH   "sys$common:[syshlp.examples.ssl]"
+#define RSA_SERVER_CA_PATH "sys$common:[syshlp.examples.ssl]"
 
 #define ON   1
-#define OFF        0
+#define OFF  0
 
 #define RETURN_NULL(x) if ((x)==NULL) exit(1)
 #define RETURN_ERR(err,s) if ((err)==-1) { perror(s); exit(1); }
@@ -244,12 +243,10 @@ void main()
 
     if (verify_client == ON)
     {
-
         /* Get the client's certificate (optional) */
         client_cert = SSL_get_peer_certificate(ssl);
         if (client_cert != NULL)
         {
-
             printf ("Client certificate:\n");
             str = X509_NAME_oneline(X509_get_subject_name(client_cert), 0, 0);
             RETURN_NULL(str);
@@ -261,9 +258,7 @@ void main()
             free (str);
             X509_free(client_cert);
         }
-
         else
-
             printf("The SSL client does not have certificate.\n");
     }
 
@@ -280,7 +275,7 @@ void main()
     /* Send data to the SSL client */
     err = SSL_write(ssl, "This message is from the SSL server",
 
-                    strlen("This message is from the SSL server"));
+    strlen("This message is from the SSL server"));
 
     RETURN_SSL(err);
 

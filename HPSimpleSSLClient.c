@@ -88,16 +88,16 @@
 #include <errno.h>
 #include <netdb.h>
 #include <unistd.h>
-#ifdef __VMS
-#include <socket.h>
-#include <inet.h>
 
-#include <in.h>
+#ifdef __VMS
+    #include <socket.h>
+    #include <inet.h>
+    #include <in.h>
 #else
-#include <sys/types.h>
-#include <sys/socket.h>
-#include <netinet/in.h>
-#include <arpa/inet.h>
+    #include <sys/types.h>
+    #include <sys/socket.h>
+    #include <netinet/in.h>
+    #include <arpa/inet.h>
 #endif
 
 #include <openssl/crypto.h>
