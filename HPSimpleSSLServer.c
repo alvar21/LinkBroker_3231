@@ -188,6 +188,28 @@ void main()
         }
 
         /* Set to require peer (client) certificate verification */
+        /*
+         * The SSL_CTX_set_verify() API allows you to set the verification flags in the SSL_CTX structure 
+         * and a callback function for customized verification as its third argument. 
+         * 
+         * (Setting NULL to the callback function means the built-in default verification function is used.) 
+         * 
+         * In the second argument of SSL_CTX_set_verify(), you can set the following macros:
+         *
+         * SSL_VERIFY_NONE
+         * SSL_VERIFY_PEER
+         * SSL_VERIFY_FAIL_IF_NO_PEER_CERT
+         * SSL_VERIFY_CLIENT_ONCE
+         * 
+         * The SSL_VERIFY_PEER macro can be used on both SSL client and server to enable the verification. 
+         * However, the subsequent behaviors depend on whether the macro is set on a client or a server. 
+         * For example:
+         * // Set a callback function (verify_callback) for peer certificate 
+         * // verification
+         * SSL_CTX_set_verify(ctx, SSL_VERIFY_PEER, verify_callback);
+         * // Set the verification depth to 1 
+         * SSL_CTX_set_verify_depth(ctx,1);
+         */
         SSL_CTX_set_verify(ctx, SSL_VERIFY_PEER, NULL);
 
         /* Set the verification depth to 1 */
