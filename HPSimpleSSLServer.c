@@ -6,10 +6,10 @@
  *
  * ABSTRACT:
  *
- *   This is an example of a SSL server with minimum functionality.
- *    The socket APIs are used to handle TCP/IP operations. This SSL
- *    server loads its own certificate and key, but it does not verify
- *  the certificate of the SSL client.
+ * This is an example of a SSL server with minimum functionality.
+ * The socket APIs are used to handle TCP/IP operations. This SSL
+ * server loads its own certificate and key, but it does not verify
+ * the certificate of the SSL client.
  *
  */
 
@@ -153,6 +153,14 @@ void main()
     }
 
     /* Load the server certificate into the SSL_CTX structure */
+    /*
+     * Use the SSL_CTX_use_certificate_file() API to load a certificate into an SSL_CTX structure. 
+     * Use the SSL_use_certificate_file() API to load a certificate into an SSL structure. 
+     * When the SSL structure is created, the SSL structure automatically loads the same certificate 
+     * that is contained in the SSL_CTX structure. Therefore, you onlyneed to call the 
+     * SSL_use_certificate_file() API for the SSL structure only if it needs to load a 
+     * different certificate than the default certificate contained in the SSL_CTX structure.
+     */
     if (SSL_CTX_use_certificate_file(ctx, RSA_SERVER_CERT, SSL_FILETYPE_PEM) <= 0)
     {
         ERR_print_errors_fp(stderr);
@@ -160,6 +168,10 @@ void main()
     }
 
     /* Load the private-key corresponding to the server certificate */
+    /*
+     * The encrypted message sent from the peer can be decrypted only using the private key. 
+     * You must preload the private key that was created with the public key into the SSL structure.
+     */
     if (SSL_CTX_use_PrivateKey_file(ctx, RSA_SERVER_KEY, SSL_FILETYPE_PEM) <= 0)
     {
 
@@ -191,6 +203,11 @@ void main()
         SSL_CTX_set_verify(ctx, SSL_VERIFY_PEER, NULL);
 
         /* Set the verification depth to 1 */
+        /*
+         * The certificate chain length from the CA certificate to the peer certificate can be set 
+         * in the verify_depth field of the SSL_CTXand SSL structures
+         * Setting verify_depth to 1 means that the peer certificate must be directly signed by the CA certificate.
+         */
         SSL_CTX_set_verify_depth(ctx, 1);
 
     }

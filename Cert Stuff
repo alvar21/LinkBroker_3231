@@ -1,0 +1,7 @@
+Creating private key cert:
+$ openssl genrsa -des3 -out mycert.pem 2048 
+	create passphrase.txt with just the passphrase in it
+Creating private key:
+$ openssl rsa -in mycert.pem -out rsa_privkey.pem -passin file:passphrase.txt
+Creating public key: 
+$ openssl rsa -in mycert.pem -pubout -out rsa_pubkey.pem -passin file:passphrase.txt
