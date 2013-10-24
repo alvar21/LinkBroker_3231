@@ -46,7 +46,7 @@ Host certificates have the hostname as the CN (this is required for Globus), and
 $ openssl req -newkey rsa:1024 -keyout host_uggp.key -nodes -config openssl.cnf -out host_uggp.req
 	Common Name (eg, YOUR name) []:uggp.uwa.edu.au
 	Email Address []:~@student.uwa.edu.au
-$ openssl ca -config openssl.cnf -out host_uggp.crt -infiles host_uggp.req
+$ openssl ca -out host_uggp.crt -infiles host_uggp.req
 
 
 
