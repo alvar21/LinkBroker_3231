@@ -1,5 +1,8 @@
 LinkBroker_3231
 ===============
+#CLIENT AND SERVER WORKING
+* Client: SSL-Client.c
+* Server: SSL-Server.c
 
 #To-dos
 1. Develop a Developer program - might have to create a dummy Link Broker (Alvar)

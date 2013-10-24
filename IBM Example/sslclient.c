@@ -49,7 +49,7 @@ int main()
     ctx = SSL_CTX_new(SSLv23_client_method());
 
     /* Load the trust store */
-    if(! SSL_CTX_load_verify_locations(ctx, "TrustStore.pem", NULL)) // TODO
+    if(! SSL_CTX_load_verify_locations(ctx, RSA_SERVER_CA_CERT, NULL)) //TODO
     {
         fprintf(stderr, "Error loading trust store\n");
         ERR_print_errors_fp(stderr);

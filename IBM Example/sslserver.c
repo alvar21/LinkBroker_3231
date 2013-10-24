@@ -57,13 +57,13 @@ int main(int argc, char const *argv[])
     ctx = SSL_CTX_new(SSLv23_client_method());
 
     /* Load the trust store */
-    if(! SSL_CTX_load_verify_locations(ctx, RSA_SERVER_CA_CERT, NULL)) //TODO
-    {
-        fprintf(stderr, "Error loading trust store\n");
-        ERR_print_errors_fp(stderr);
-        SSL_CTX_free(ctx);
-        return 0;
-    }
+    // if(! SSL_CTX_load_verify_locations(ctx, RSA_SERVER_CA_CERT, NULL)) //TODO
+    // {
+    //     fprintf(stderr, "Error loading trust store\n");
+    //     ERR_print_errors_fp(stderr);
+    //     SSL_CTX_free(ctx);
+    //     return 0;
+    // }
 // START HP
     /* Load the server certificate into the SSL_CTX structure */
     if (SSL_CTX_use_certificate_file(ctx, RSA_SERVER_CERT, SSL_FILETYPE_PEM) <= 0)
@@ -93,27 +93,29 @@ int main(int argc, char const *argv[])
     bio = BIO_new_accept(s_port);
 
     /* Set the SSL_MODE_AUTO_RETRY flag */
-    BIO_get_ssl(bio, & ssl);
+    // BIO_get_ssl(bio, &ssl);
     //SSL_set_mode(ssl, SSL_MODE_AUTO_RETRY);
     
+    //printf("%s\n", ssl);
+
     /* Check the certificate */
-    if(SSL_get_verify_result(ssl) != X509_V_OK)
-    {
-        fprintf(stderr, "Certificate verification error: %lu\n", SSL_get_verify_result(ssl));
-        BIO_free_all(bio);
-        SSL_CTX_free(ctx);
-        return 0;
-    }
+    // if(SSL_get_verify_result(ssl) != X509_V_OK)
+    // {
+    //     fprintf(stderr, "Certificate verification error: %lu\n", SSL_get_verify_result(ssl));
+    //     BIO_free_all(bio);
+    //     SSL_CTX_free(ctx);
+    //     return 0;
+    // }
 
 //TODO
     /* Read in the response */
-    for(;;)
-    {
-        p = BIO_read(bio, r, 1023);
-        if(p <= 0) break;
-        r[p] = 0;
-        printf("%s", r);
-    }
+    // for(;;)
+    // {
+    //     p = BIO_read(bio, r, 1023);
+    //     if(p <= 0) break;
+    //     r[p] = 0;
+    //     printf("%s", r);
+    // }
 
     /* Close the connection and free the context */
     BIO_free_all(bio);
