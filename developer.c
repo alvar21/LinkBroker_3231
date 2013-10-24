@@ -11,7 +11,6 @@
 //
 // 
 
-//#include "developer.h" //dont need this
 #include <stdio.h>
 #include <string.h>
 #include <errno.h>
@@ -52,10 +51,10 @@ static char *progname;
 
 int main(int argc, char *argv[]) {
 
-    if (argc != 3) {
+    /*if (argc != 3) {
         fprintf(stderr, "wrong number of command line arguments provided, need 2 but have %i", argc); //TODO fix when arguments are done
         exit(EXIT_FAILURE);
-    }
+    }*/
 
 
 /*Client code
