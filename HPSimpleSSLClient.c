@@ -161,9 +161,8 @@ void main()
     if (verify_client == ON)
     {
         /* Load the client certificate into the SSL_CTX structure */
-        if (SSL_CTX_use_certificate_file(ctx, RSA_CLIENT_CERT,
-
-                                         SSL_FILETYPE_PEM) <= 0)
+        if (SSL_CTX_use_certificate_file(ctx, RSA_CLIENT_CERT, 
+                                                SSL_FILETYPE_PEM) <= 0)
         {
             ERR_print_errors_fp(stderr);
             exit(1);
