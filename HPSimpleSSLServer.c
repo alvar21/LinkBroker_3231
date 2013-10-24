@@ -143,7 +143,7 @@ void main()
     /* Create a SSL_METHOD structure (choose a SSL/TLS protocol version) */
     meth = SSLv3_method();
 
-    /* Create a SSL_CTX structure */
+    /* Create a SSL_CTX strumygcture */
     ctx = SSL_CTX_new(meth);
 
     if (!ctx)
