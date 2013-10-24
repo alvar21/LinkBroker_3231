@@ -20,3 +20,4 @@
 # Miscellaneous
 studentno.txt
 passphrase.txt
+*.c~
