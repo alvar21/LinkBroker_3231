@@ -5,12 +5,17 @@
 #include "openssl/bio.h"
 #include "openssl/err.h"
 
+#define RSA_SERVER_CERT    "host_uggp.crt"
+#define RSA_SERVER_KEY     "host_uggp.key"
+
+#define RSA_SERVER_CA_CERT "signing-ca-1.crt"
+#define RSA_SERVER_CA_PATH "../SigningCA1"
+
 #include <stdio.h>
 #include <string.h>
 
 int main(int argc, char const *argv[])
 {
-    int err;
     /* Prior to setting up a connection, 
     whether secure or not, a pointer for a BIO object needs to be created. 
     This is similar to the FILE pointer for a file stream in standard C. */    
@@ -37,8 +42,10 @@ int main(int argc, char const *argv[])
     To determine if the error is recoverable, call BIO_should_retry. */
     int p;
 
-    char * request = "GET / HTTP/1.1\x0D\x0AHost: www.verisign.com\x0D\x0A\x43onnection: Close\x0D\x0A\x0D\x0A";
+    //char * request = "GET / HTTP/1.1\x0D\x0AHost: www.verisign.com\x0D\x0A\x43onnection: Close\x0D\x0A\x0D\x0A";
     char r[1024];
+    
+    char *s_port = "5555";
 
     /* Set up the library */
     SSL_library_init();
@@ -50,14 +57,14 @@ int main(int argc, char const *argv[])
     ctx = SSL_CTX_new(SSLv23_client_method());
 
     /* Load the trust store */
-    if(! SSL_CTX_load_verify_locations(ctx, "TrustStore.pem", NULL))
+    if(! SSL_CTX_load_verify_locations(ctx, RSA_SERVER_CA_CERT, NULL)) //TODO
     {
         fprintf(stderr, "Error loading trust store\n");
         ERR_print_errors_fp(stderr);
         SSL_CTX_free(ctx);
         return 0;
     }
-
+// START HP
     /* Load the server certificate into the SSL_CTX structure */
     if (SSL_CTX_use_certificate_file(ctx, RSA_SERVER_CERT, SSL_FILETYPE_PEM) <= 0)
     {
@@ -80,23 +87,25 @@ int main(int argc, char const *argv[])
         fprintf(stderr, "Private key does not match the certificate public key\n");
         exit(1);
     }
-
+// END HP
 
     /* Accept the connection */
-    err = SSL_accept(ssl);
+    bio = BIO_new_accept(s_port);
 
-    /* Create and setup the connection */
-    BIO_set_conn_hostname(bio, "www.verisign.com:https");
-
+    /* Set the SSL_MODE_AUTO_RETRY flag */
+    BIO_get_ssl(bio, & ssl);
+    //SSL_set_mode(ssl, SSL_MODE_AUTO_RETRY);
+    
     /* Check the certificate */
     if(SSL_get_verify_result(ssl) != X509_V_OK)
     {
-        fprintf(stderr, "Certificate verification error: %i\n", SSL_get_verify_result(ssl));
+        fprintf(stderr, "Certificate verification error: %lu\n", SSL_get_verify_result(ssl));
         BIO_free_all(bio);
         SSL_CTX_free(ctx);
         return 0;
     }
 
+//TODO
     /* Read in the response */
     for(;;)
     {

@@ -36,7 +36,7 @@ int main()
     To determine if the error is recoverable, call BIO_should_retry. */
     int p;
 
-    char * request = "GET / HTTP/1.1\x0D\x0AHost: www.verisign.com\x0D\x0A\x43onnection: Close\x0D\x0A\x0D\x0A";
+    char * request = "GET / HTTP/1.1\x0D\x0AHost: 127.0.0.1\x0D\x0A\x43onnection: Close\x0D\x0A\x0D\x0A";
     char r[1024];
 
     /* Set up the library */
@@ -49,7 +49,7 @@ int main()
     ctx = SSL_CTX_new(SSLv23_client_method());
 
     /* Load the trust store */
-    if(! SSL_CTX_load_verify_locations(ctx, "TrustStore.pem", NULL))
+    if(! SSL_CTX_load_verify_locations(ctx, "TrustStore.pem", NULL)) // TODO
     {
         fprintf(stderr, "Error loading trust store\n");
         ERR_print_errors_fp(stderr);
@@ -65,7 +65,7 @@ int main()
     SSL_set_mode(ssl, SSL_MODE_AUTO_RETRY);
 
     /* Create and setup the connection */
-    BIO_set_conn_hostname(bio, "www.verisign.com:https");
+    BIO_set_conn_hostname(bio, "localhost:8000"); //TODO
 
     if(BIO_do_connect(bio) <= 0)
     {
@@ -79,7 +79,7 @@ int main()
     /* Check the certificate */
     if(SSL_get_verify_result(ssl) != X509_V_OK)
     {
-        fprintf(stderr, "Certificate verification error: %i\n", SSL_get_verify_result(ssl));
+        fprintf(stderr, "Certificate verification error: %lu\n", SSL_get_verify_result(ssl));
         BIO_free_all(bio);
         SSL_CTX_free(ctx);
         return 0;
