@@ -1,3 +1,10 @@
+/*
+ CITS3231 Project 2013
+ Name(s):           Alvar Ongkowidjaja, Danielle Page and Michael Piotrowski
+ Student number(s): 20841563, 20753669, 20738843 
+ Date:              25 October 2013
+ */
+
 // SSL-Client.c
 // http://stackoverflow.com/questions/11705815/client-and-server-communication-using-ssl-c-c-ssl-protocol-dont-works
 #include <stdio.h>
