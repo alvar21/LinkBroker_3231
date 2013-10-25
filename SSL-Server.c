@@ -11,9 +11,9 @@
 //#include "inet.h"
 #include <arpa/nameser.h>
 #include <arpa/nameser_compat.h>
-#include "resolv.h"
-#include "openssl/ssl.h"
-#include "openssl/err.h"
+#include <resolv.h>
+#include <openssl/ssl.h>
+#include <openssl/err.h>
 #include <string.h>
 
 #define FAIL    -1

@@ -5,18 +5,17 @@
  Date:              25 October 2013
  */
 
-// SSL-Client.c
-// http://stackoverflow.com/questions/11705815/client-and-server-communication-using-ssl-c-c-ssl-protocol-dont-works
+// source: http://stackoverflow.com/questions/11705815/client-and-server-communication-using-ssl-c-c-ssl-protocol-dont-works
+
 #include <stdio.h>
 #include <errno.h>
 #include <unistd.h>
-//#include <malloc.h>
 #include <string.h>
 #include <sys/socket.h>
-#include "resolv.h"
+#include <resolv.h>
 #include <netdb.h>
-#include "openssl/ssl.h"
-#include "openssl/err.h"
+#include <openssl/ssl.h>
+#include <openssl/err.h>
 
 #define FAIL    -1
 
@@ -131,15 +130,34 @@ int main(int argc, char **argv)
         ERR_print_errors_fp(stderr);
     else
     {   
-        char *msg = "Hello???"; //TODO
+        // char *filename = argv[1];
+
+        // FILE *prog = fopen(filename, "rb");
+        // if (prog == NULL)
+        // { 
+        //     printf("Fread error\n");
+        //     exit(1);
+        // }
+        // unsigned long len;
+        // unsigned char *buff;
+
+        // fseek(prog, 0, SEEK_END);
+        // len = ftell(prog);
+        // fseek(prog, 0, SEEK_SET);
+
+        // buff = (unsigned char *) calloc(1, len + 1);
+        // fread(buff, len, 1, prog);
+        char *msg = "Hello";
 
         printf("Connected with %s encryption\n", SSL_get_cipher(ssl));
         ShowCerts(ssl);        /* get any certs */
         SSL_write(ssl, msg, strlen(msg));   /* encrypt & send message */ //TODO
+        // SSL_write(ssl, prog, len);
         bytes = SSL_read(ssl, buf, sizeof(buf)); /* get reply & decrypt */
         buf[bytes] = 0;
         printf("Received: \"%s\"\n", buf);
         SSL_free(ssl);        /* release connection state */
+        //fclose(prog);
     }
     
     close(server);         /* close socket */

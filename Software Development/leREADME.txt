@@ -23,11 +23,10 @@ Developer: SWH1licenses.txt
 
 ***IMPORTANT***
 SWH.c and SWH2.c must be linked with the crypt library manually. A sample gcc compilation would be
-	$ gcc SWH.c -lcrypt -o swh
-	$ gcc SWH2.c -lcrypt -o swh2
+	$ gcc SWH.c -lcrypto -o swh
+	$ gcc SWH2.c -lcrypto -o swh2
 
-Software houses' code are exact copies, except for a few file and function names changed.
-This is necessary for implementing authentication functions.
+Software houses' code are exact copies, except for a few file and function names changed. This is necessary for implementing authentication functions.
 
 If you wish to run the software house code again, it is necessary to delete the following files:
 	SWH1deliverable.c SWH1deliverable.o SWH2deliverable.c SWH2deliverable.o

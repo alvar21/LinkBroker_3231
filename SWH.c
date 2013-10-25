@@ -19,7 +19,8 @@
 #include <string.h>
 #include <time.h>
 #include <unistd.h>
-#include <crypt.h>
+#include <openssl/ssl.h>
+#include <openssl/err.h>
 
 //generate an authentication key
 int genpass(char *unencrypted_license)
@@ -73,7 +74,7 @@ int checkLicense(char *license)
     char buff[256];
     int found = 0;
     FILE *usedlicenses = fopen("SWH1usedlicenses.txt", "r");
-
+    int ok = 0;
     //test if we have this license
     while (fgets(buff, 256, f) != NULL)
     {
@@ -107,7 +108,7 @@ void addUsed(char *license)
 }
 
 //Takes an unencrypted license as argument
-static void main(int argc, char *argv)
+int main(int argc, char **argv)
 {
     if (checkLicense(argv[1]) == 1)
     {
@@ -133,5 +134,5 @@ static void main(int argc, char *argv)
         }
     }
 
-    return;
+    return 0;
 }
