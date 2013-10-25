@@ -1,16 +1,20 @@
 // SSL-Server.c
 // http://stackoverflow.com/questions/11705815/client-and-server-communication-using-ssl-c-c-ssl-protocol-dont-works
+
+#include <sys/types.h>
 #include <errno.h>
 #include <unistd.h>
-//#include <malloc.h>
-#include <string.h>
-#include <arpa/inet.h>
 #include <sys/socket.h>
-#include <sys/types.h>
+//#include <malloc.h>
 #include <netinet/in.h>
-#include <resolv.h>
+#include <arpa/inet.h>
+//#include "inet.h"
+#include <arpa/nameser.h>
+#include <arpa/nameser_compat.h>
+#include "resolv.h"
 #include "openssl/ssl.h"
 #include "openssl/err.h"
+#include <string.h>
 
 #define FAIL    -1
 
@@ -140,7 +144,7 @@ int main(int argc, char **argv)
 {   
     SSL_CTX *ctx;
     int server;
-    char portnum[] = "8000";
+    char portnum[] = "5555";
 
         char CertFile[] = "developer.crt";
         char KeyFile[] = "developer.key";

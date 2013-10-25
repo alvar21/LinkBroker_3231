@@ -6,7 +6,7 @@
 //#include <malloc.h>
 #include <string.h>
 #include <sys/socket.h>
-#include <resolv.h>
+#include "resolv.h"
 #include <netdb.h>
 #include "openssl/ssl.h"
 #include "openssl/err.h"
@@ -107,7 +107,7 @@ int main(int argc, char **argv)
     char buf[1024];
     int bytes;
     char hostname[]="127.0.0.1";
-    char portnum[]="8000";
+    char portnum[]="5555";
     char CertFile[] = "signing-ca-1.crt";
     char KeyFile[] = "signing-ca-1.key";
 

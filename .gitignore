@@ -21,3 +21,6 @@
 studentno.txt
 passphrase.txt
 *.c~
+arpa/
+inet.h
+resolv.h
