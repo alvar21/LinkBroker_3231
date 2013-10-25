@@ -6,13 +6,13 @@
 *
 * ABSTRACT:
 *
-*      This is an example of an SSL client with minimum functionality.
-*      The socket APIs are used to handle TCP/IP operations.
+* This is an example of an SSL client with minimum functionality.
+* The socket APIs are used to handle TCP/IP operations.
 *
-*       This SSL client verifies the server's certificate against the CA
-*   certificate loaded in the client.
+* This SSL client verifies the server's certificate against the CA
+* certificate loaded in the client.
 *
-*   This SSL client does not load its own certificate and key because
+* This SSL client does not load its own certificate and key because
 * the SSL server does not request nor verify the client certificate.
 *
 

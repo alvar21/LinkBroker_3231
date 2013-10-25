@@ -1,0 +1,65 @@
+http://pages.cs.wisc.edu/~zmiller/ca-howto/
+
+Create the CA root key and self-signed certificate
+
+Generating key pair:
+/* 
+ * contains an RSA keypair which is encryped using the password you supply. 
+ * So, for someone to use this key to create new certificates 
+ * (either host or client), they'll need both this file and the password.
+ */
+$ openssl genrsa -des3 -out root-ca.key 2048 -config openssl.cnf -passin file:passphrase.txt
+
+Use the key to sign itself:
+/*
+ * This reads, "create a new, self-signed X.509 certificate valid for 
+ * ten years, for the keypair in the file root-ca.key, and place the output 
+ * in the file root-ca.crt."
+ */
+$ openssl req -new -x509 -days 3650 -key root-ca.key -out root-ca.crt  -config openssl.cnf
+
+Now, let's take a look at the certificate we generated:
+$ openssl x509 -noout -text -in root-ca.crt
+
+Finally, we need to put these certificates and
+keys into a directory where our config file can find them for future use. 
+Here is a perl script to create the directory heirarchy you will need.
+
+Run it like this:
+$ perl mk_new_ca_dir.pl SigningCA1
+$ mv root-ca.crt SigningCA1/signing-ca-1.crt
+$ mv root-ca.key SigningCA1/signing-ca-1.key
+
+
+
+
+User certificates have the user name as the CN, and their email address. OpenSSL allows you to create a key and a certificate signing request in one step:
+$ openssl req -newkey rsa:1024 -keyout developer.key -passin file:passphrase.txt -config openssl.cnf -out developer.req 
+
+Then sign it, remembering the signing key password:
+$ openssl ca -config openssl.cnf -out developer.crt -infiles developer.req
+
+
+Hosts
+
+Host certificates have the hostname as the CN (this is required for Globus), and the email address of the requester.
+$ openssl req -newkey rsa:1024 -keyout host_uggp.key -nodes -config openssl.cnf -out host_uggp.req
+	Common Name (eg, YOUR name) []:uggp.uwa.edu.au
+	Email Address []:~@student.uwa.edu.au
+$ openssl ca -config openssl.cnf -out host_uggp.crt -infiles host_uggp.req
+
+
+
+
+
+	Create passphrase.txt with just the passphrase in it
+
+	Generating private key:
+	$ openssl rsa -in mycert.crt -out rsa_privkey.key -passin file:passphrase.txt
+
+	Generating public key: 
+	$ openssl rsa -in mycert.crt -pubout -out rsa_pubkey.key -passin file:passphrase.txt
+
+
+	Generating a self-signed certificate:
+	$ openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout mycert.key -out mycert.crt

@@ -1,0 +1,81 @@
+Certificate:
+    Data:
+        Version: 3 (0x2)
+        Serial Number: 2 (0x2)
+        Signature Algorithm: md5WithRSAEncryption
+        Issuer: C=AU, ST=Western Australia, L=Perth, O=University of Western Australia, O=CSSE, OU=LinkBroker, CN=Alvar/emailAddress=20845163@student.uwa.edu.au
+        Validity
+            Not Before: Oct 24 09:50:43 2013 GMT
+            Not After : Oct 24 09:50:43 2014 GMT
+        Subject: C=AU, ST=Western Australia, L=Perth, O=University of Western Australia, O=CSSE, OU=LinkBroker, CN=uggp.uwa.edu.au/emailAddress=20738843@student.uwa.edu.au
+        Subject Public Key Info:
+            Public Key Algorithm: rsaEncryption
+                Public-Key: (1024 bit)
+                Modulus:
+                    00:bf:3e:ca:ee:ca:31:07:88:9c:fc:21:72:3d:4e:
+                    89:37:e5:07:76:db:a8:a5:ef:58:bd:dd:85:64:da:
+                    d9:d8:13:07:4c:65:a4:2f:30:37:fd:5e:03:ab:c3:
+                    78:d2:13:96:d1:3d:07:56:bf:c0:3e:45:c7:97:8f:
+                    22:30:23:32:3c:7a:80:e7:5f:41:fd:51:4d:23:bc:
+                    e2:ce:f5:bb:d3:88:5b:57:48:50:ad:12:76:cb:8e:
+                    41:18:c1:b3:d4:45:71:9c:e3:05:00:a2:0d:69:a0:
+                    a2:ca:e3:18:f1:6c:c8:58:9c:c4:6b:c1:18:f1:d5:
+                    8c:e9:45:4d:bb:a6:25:bb:a7
+                Exponent: 65537 (0x10001)
+        X509v3 extensions:
+            X509v3 Basic Constraints: 
+                CA:FALSE
+            Netscape Comment: 
+                OpenSSL Generated Certificate
+            X509v3 Subject Key Identifier: 
+                70:67:62:64:62:2E:9B:A3:E7:D0:87:64:AA:73:44:FC:C3:15:04:9F
+            X509v3 Authority Key Identifier: 
+                keyid:B9:6D:50:CA:51:E1:56:9F:37:B2:9C:E6:CD:56:B4:09:FD:5D:7D:CC
+                DirName:/C=AU/ST=Western Australia/L=Perth/O=University of Western Australia/O=CSSE/OU=LinkBroker/CN=Alvar/emailAddress=20845163@student.uwa.edu.au
+                serial:EB:D9:42:E5:D6:C0:C5:C2
+
+    Signature Algorithm: md5WithRSAEncryption
+        3a:d0:61:54:36:f8:5b:23:7e:bf:b3:78:bc:fd:70:09:a0:05:
+        35:df:29:59:8a:31:41:1e:e2:bf:f7:9b:db:7f:4d:bd:4b:b0:
+        b2:b1:d6:5d:e1:44:72:14:cb:ee:2d:4c:e0:5b:b1:ee:6e:60:
+        8c:1b:7d:a0:12:ea:33:8c:f4:f5:c8:06:48:05:8a:bc:36:26:
+        c4:72:19:3f:b3:65:ac:47:1b:3e:21:93:d4:a3:b5:eb:9a:d6:
+        a2:0f:50:0e:0c:ed:fe:f6:77:7d:2f:04:f8:64:91:55:c6:cb:
+        20:0d:27:0c:ea:47:11:ea:a4:b1:b1:c6:a4:58:70:9a:fb:25:
+        66:4a:43:da:a6:28:93:9e:ae:eb:55:7d:ae:ca:26:ef:61:e9:
+        31:c3:10:90:ba:7f:3e:88:58:cb:79:da:9e:19:3a:8d:60:04:
+        4f:69:ad:46:db:c9:eb:30:d2:76:20:71:87:c6:c3:81:d3:a0:
+        50:a6:0b:72:7c:5d:c5:ce:e0:f5:98:42:a4:50:a5:67:1f:fa:
+        e3:c7:3b:a9:55:3d:70:66:ba:08:0b:af:08:6c:90:57:bf:fc:
+        52:34:0d:ff:b5:75:40:33:df:c3:64:42:e8:6f:b4:5d:4d:c1:
+        16:84:8b:da:83:5e:4c:ed:6c:08:50:f4:b7:96:ba:cd:e2:18:
+        66:b1:79:46
+-----BEGIN CERTIFICATE-----
+MIIE4jCCA8qgAwIBAgIBAjANBgkqhkiG9w0BAQQFADCBwzELMAkGA1UEBhMCQVUx
+GjAYBgNVBAgTEVdlc3Rlcm4gQXVzdHJhbGlhMQ4wDAYDVQQHEwVQZXJ0aDEoMCYG
+A1UEChMfVW5pdmVyc2l0eSBvZiBXZXN0ZXJuIEF1c3RyYWxpYTENMAsGA1UEChME
+Q1NTRTETMBEGA1UECxMKTGlua0Jyb2tlcjEOMAwGA1UEAxMFQWx2YXIxKjAoBgkq
+hkiG9w0BCQEWGzIwODQ1MTYzQHN0dWRlbnQudXdhLmVkdS5hdTAeFw0xMzEwMjQw
+OTUwNDNaFw0xNDEwMjQwOTUwNDNaMIHNMQswCQYDVQQGEwJBVTEaMBgGA1UECBMR
+V2VzdGVybiBBdXN0cmFsaWExDjAMBgNVBAcTBVBlcnRoMSgwJgYDVQQKEx9Vbml2
+ZXJzaXR5IG9mIFdlc3Rlcm4gQXVzdHJhbGlhMQ0wCwYDVQQKEwRDU1NFMRMwEQYD
+VQQLEwpMaW5rQnJva2VyMRgwFgYDVQQDEw91Z2dwLnV3YS5lZHUuYXUxKjAoBgkq
+hkiG9w0BCQEWGzIwNzM4ODQzQHN0dWRlbnQudXdhLmVkdS5hdTCBnzANBgkqhkiG
+9w0BAQEFAAOBjQAwgYkCgYEAvz7K7soxB4ic/CFyPU6JN+UHdtuope9Yvd2FZNrZ
+2BMHTGWkLzA3/V4Dq8N40hOW0T0HVr/APkXHl48iMCMyPHqA519B/VFNI7zizvW7
+04hbV0hQrRJ2y45BGMGz1EVxnOMFAKINaaCiyuMY8WzIWJzEa8EY8dWM6UVNu6Yl
+u6cCAwEAAaOCAVcwggFTMAkGA1UdEwQCMAAwLAYJYIZIAYb4QgENBB8WHU9wZW5T
+U0wgR2VuZXJhdGVkIENlcnRpZmljYXRlMB0GA1UdDgQWBBRwZ2JkYi6bo+fQh2Sq
+c0T8wxUEnzCB+AYDVR0jBIHwMIHtgBS5bVDKUeFWnzeynObNVrQJ/V19zKGByaSB
+xjCBwzELMAkGA1UEBhMCQVUxGjAYBgNVBAgTEVdlc3Rlcm4gQXVzdHJhbGlhMQ4w
+DAYDVQQHEwVQZXJ0aDEoMCYGA1UEChMfVW5pdmVyc2l0eSBvZiBXZXN0ZXJuIEF1
+c3RyYWxpYTENMAsGA1UEChMEQ1NTRTETMBEGA1UECxMKTGlua0Jyb2tlcjEOMAwG
+A1UEAxMFQWx2YXIxKjAoBgkqhkiG9w0BCQEWGzIwODQ1MTYzQHN0dWRlbnQudXdh
+LmVkdS5hdYIJAOvZQuXWwMXCMA0GCSqGSIb3DQEBBAUAA4IBAQA60GFUNvhbI36/
+s3i8/XAJoAU13ylZijFBHuK/95vbf029S7CysdZd4URyFMvuLUzgW7HubmCMG32g
+EuozjPT1yAZIBYq8NibEchk/s2WsRxs+IZPUo7XrmtaiD1AODO3+9nd9LwT4ZJFV
+xssgDScM6kcR6qSxscakWHCa+yVmSkPapiiTnq7rVX2uyibvYekxwxCQun8+iFjL
+edqeGTqNYARPaa1G28nrMNJ2IHGHxsOB06BQpgtyfF3FzuD1mEKkUKVnH/rjxzup
+VT1wZroIC68IbJBXv/xSNA3/tXVAM9/DZELob7RdTcEWhIvag15M7WwIUPS3lrrN
+4hhmsXlG
+-----END CERTIFICATE-----
