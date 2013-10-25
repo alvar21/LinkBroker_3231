@@ -142,8 +142,8 @@ int main(int argc, char **argv)
     int server;
     char portnum[] = "8000";
 
-        char CertFile[] = "developer.crt";
-        char KeyFile[] = "developer.key";
+        char CertFile[] = "signing-ca-1.crt";
+        char KeyFile[] = "signing-ca-1.key";
 
     SSL_library_init();
 
@@ -151,7 +151,8 @@ int main(int argc, char **argv)
     LoadCertificates(ctx, CertFile, KeyFile); /* load certs */
     server = OpenListener(atoi(portnum));    /* create server socket */
     while (1)
-    {   struct sockaddr_in addr;
+    {   
+        struct sockaddr_in addr;
         socklen_t len = sizeof(addr);
         SSL *ssl;
 

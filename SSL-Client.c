@@ -108,8 +108,8 @@ int main(int argc, char **argv)
     int bytes;
     char hostname[]="127.0.0.1";
     char portnum[]="8000";
-    char CertFile[] = "signing-ca-1.crt";
-    char KeyFile[] = "signing-ca-1.key";
+    char CertFile[] = "developer.crt";
+    char KeyFile[] = "developer.key";
 
     SSL_library_init();
 
@@ -118,6 +118,7 @@ int main(int argc, char **argv)
     server = OpenConnection(hostname, atoi(portnum));
     ssl = SSL_new(ctx);      /* create new SSL connection state */
     SSL_set_fd(ssl, server);    /* attach the socket descriptor */
+
     if ( SSL_connect(ssl) == FAIL )   /* perform the connection */
         ERR_print_errors_fp(stderr);
     else
@@ -132,6 +133,7 @@ int main(int argc, char **argv)
         printf("Received: \"%s\"\n", buf);
         SSL_free(ssl);        /* release connection state */
     }
+    
     close(server);         /* close socket */
     SSL_CTX_free(ctx);        /* release context */
  
